@@ -1,0 +1,429 @@
+[
+  {
+    "id": "Q01",
+    "category": "version_conflict",
+    "answerable": true,
+    "question": "How many days of annual leave can employees in India carry forward?",
+    "expected_answer": "12 days, under HR-LV-104 v4.0 effective 1 January 2026. The earlier limit of 10 days (v3.0, 2024) is superseded.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "4.2"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2024.pdf s4.2 (10 days, obsolete)",
+      "leave_policy_us_2026.pdf s2.2 (5 days, US)"
+    ]
+  },
+  {
+    "id": "Q02",
+    "category": "version_conflict_temporal",
+    "answerable": true,
+    "question": "What was the carry forward limit for India employees in the leave year April 2024 to March 2025?",
+    "expected_answer": "10 days, under HR-LV-104 v3.0 effective 1 April 2024.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2024.pdf",
+        "section": "4.2"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2026.pdf s4.2 (12 days applies from 2026)"
+    ]
+  },
+  {
+    "id": "Q03",
+    "category": "version_conflict",
+    "answerable": true,
+    "question": "How many days of paternity leave do fathers get in India?",
+    "expected_answer": "10 working days of paternity / secondary caregiver leave under HR-LV-104 v4.0 (was 5 days in v3.0).",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "7.2"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2024.pdf s7.2 (5 days)"
+    ]
+  },
+  {
+    "id": "Q04",
+    "category": "version_conflict",
+    "answerable": true,
+    "question": "How many sick leave days do India employees get?",
+    "expected_answer": "12 days per leave year (HR-LV-104 v4.0). v3.0 provided 10.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "6"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2024.pdf s6"
+    ]
+  },
+  {
+    "id": "Q05",
+    "category": "stale_vs_current",
+    "answerable": true,
+    "question": "How many days per week can I work from home?",
+    "expected_answer": "Up to 3 days per week for hybrid roles (HR-RW-301 v2.1, effective 1 March 2026), with at least 2 office days. The handbook's '2 days' is outdated; new joiners in their first 90 days must be in office 3 days.",
+    "evidence": [
+      {
+        "file": "remote_work_policy.pdf",
+        "section": "3.1"
+      }
+    ],
+    "traps": [
+      "employee_handbook.pdf s6 (2 days, stale)"
+    ]
+  },
+  {
+    "id": "Q06",
+    "category": "semantic_distraction",
+    "answerable": true,
+    "question": "What is the maximum number of leave days that lapse-proof carry over to next year in India?",
+    "expected_answer": "12 days (HR-LV-104 v4.0 s4.2). The '24 annual leave days' figure is the annual entitlement, not the carry forward limit.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "4.2"
+      }
+    ],
+    "traps": [
+      "employee_handbook.pdf s5 ('24 annual leave days')",
+      "leave_policy_india_2026.pdf s4.1"
+    ]
+  },
+  {
+    "id": "Q07",
+    "category": "jurisdiction",
+    "answerable": true,
+    "question": "How much PTO can a US employee carry over?",
+    "expected_answer": "5 days (40 hours); excess forfeits on 31 Dec, except in states like California, Colorado and Montana where PTO does not lapse but accrual caps at 1.5x annual entitlement.",
+    "evidence": [
+      {
+        "file": "leave_policy_us_2026.pdf",
+        "section": "2.2"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2026.pdf s4.2 (12 days, India)"
+    ]
+  },
+  {
+    "id": "Q08",
+    "category": "partial_evidence_multi_hop",
+    "answerable": true,
+    "question": "Are contractors eligible for parental leave?",
+    "expected_answer": "No. HR-LV-104 provides parental leave to employees and excludes contractors from scope; HR-CT-501 s5 states contractors are not eligible for employee benefits; the handbook defines employee benefits to include all paid leave including parental leave.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "7"
+      },
+      {
+        "file": "contractor_policy.pdf",
+        "section": "5"
+      },
+      {
+        "file": "employee_handbook.pdf",
+        "section": "2"
+      }
+    ],
+    "traps": [
+      "leave_policy_india_2026.pdf s7 alone ('Employees may apply for parental leave') is insufficient"
+    ]
+  },
+  {
+    "id": "Q09",
+    "category": "multi_doc",
+    "answerable": true,
+    "question": "Can a contractor claim per diem when travelling for a client visit?",
+    "expected_answer": "Only if the SOW expressly provides for it; otherwise per diem is not payable to contractors. Where permitted, amounts are capped at TR-202 limits.",
+    "evidence": [
+      {
+        "file": "contractor_policy.pdf",
+        "section": "7"
+      },
+      {
+        "file": "travel_policy.pdf",
+        "section": "5"
+      }
+    ],
+    "traps": []
+  },
+  {
+    "id": "Q10",
+    "category": "multi_doc",
+    "answerable": true,
+    "question": "If I work from abroad for two weeks, will the company pay for my flights?",
+    "expected_answer": "No. Work-from-abroad travel costs are personal and not reimbursable (HR-RW-301 s5; TR-202 s9).",
+    "evidence": [
+      {
+        "file": "remote_work_policy.pdf",
+        "section": "5"
+      },
+      {
+        "file": "travel_policy.pdf",
+        "section": "9"
+      }
+    ],
+    "traps": []
+  },
+  {
+    "id": "Q11",
+    "category": "multi_doc",
+    "answerable": true,
+    "question": "I'm in India and having a baby. What leave and insurance support do I get?",
+    "expected_answer": "26 weeks paid maternity leave (if 80 days worked in prior 12 months), or 10 days paternity/secondary caregiver leave; maternity insurance cover INR 75,000 normal / INR 1,00,000 caesarean with waiting period waived; newborn covered from day one if enrolled within 30 days.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "7"
+      },
+      {
+        "file": "health_insurance_policy.pdf",
+        "section": "3.1"
+      }
+    ],
+    "traps": []
+  },
+  {
+    "id": "Q12",
+    "category": "multi_doc",
+    "answerable": true,
+    "question": "Can a contractor get the home office setup allowance?",
+    "expected_answer": "No. HR-RW-301 s2 and HR-CT-501 s6 exclude contractors from home office and internet allowances.",
+    "evidence": [
+      {
+        "file": "remote_work_policy.pdf",
+        "section": "2"
+      },
+      {
+        "file": "contractor_policy.pdf",
+        "section": "6"
+      }
+    ],
+    "traps": []
+  },
+  {
+    "id": "Q13",
+    "category": "exact_identifier",
+    "answerable": true,
+    "question": "What is policy TR-202?",
+    "expected_answer": "The Global Travel and Expense Policy, version 3.2, effective 1 April 2026.",
+    "evidence": [
+      {
+        "file": "travel_policy.pdf",
+        "section": "control"
+      }
+    ],
+    "traps": [
+      "TR-220 (Relocation)",
+      "TR-202A (Travel Approval Matrix annex)"
+    ]
+  },
+  {
+    "id": "Q14",
+    "category": "exact_identifier",
+    "answerable": true,
+    "question": "What does policy HR-LV-104 say about bereavement leave?",
+    "expected_answer": "5 working days for immediate family including in-laws and grandparents (current v4.0). v3.0 gave 3 days.",
+    "evidence": [
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "8"
+      }
+    ],
+    "traps": [
+      "HR-LV-140",
+      "HR-LV-210 (US: 5 days immediate, 2 extended)"
+    ]
+  },
+  {
+    "id": "Q15",
+    "category": "exact_identifier_retired",
+    "answerable": true,
+    "question": "Where can I find the current version of HR-LV-140?",
+    "expected_answer": "HR-LV-140 (Leave Encashment Policy - India) is retired; its rules were merged into HR-LV-104. Current encashment on separation: up to 45 days of annual leave.",
+    "evidence": [
+      {
+        "file": "employee_handbook.pdf",
+        "section": "15"
+      },
+      {
+        "file": "leave_policy_india_2026.pdf",
+        "section": "10"
+      }
+    ],
+    "traps": [
+      "HR-LV-104",
+      "HR-LV-210"
+    ]
+  },
+  {
+    "id": "Q16",
+    "category": "exact_identifier_not_in_corpus",
+    "answerable": false,
+    "question": "What relocation allowance does TR-220 provide?",
+    "expected_answer": "Not answerable from the corpus. TR-220 is the Relocation Assistance Policy, which is referenced but published separately; its contents are not available.",
+    "evidence": [
+      {
+        "file": "employee_handbook.pdf",
+        "section": "15"
+      },
+      {
+        "file": "travel_policy.pdf",
+        "section": "12"
+      }
+    ],
+    "traps": [
+      "TR-202 content"
+    ]
+  },
+  {
+    "id": "Q17",
+    "category": "exact_identifier",
+    "answerable": true,
+    "question": "Which policy number covers US parental leave?",
+    "expected_answer": "HR-LV-210 (Paid Time Off and Leave Policy - United States), Section 5.",
+    "evidence": [
+      {
+        "file": "leave_policy_us_2026.pdf",
+        "section": "5"
+      }
+    ],
+    "traps": [
+      "HR-LV-104"
+    ]
+  },
+  {
+    "id": "Q18",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "Does the company reimburse home gym memberships?",
+    "expected_answer": "Not covered by any policy in the corpus. The assistant should say it cannot find this and suggest contacting HR / Total Rewards; it must not infer from wellness sessions, EAP or the home office allowance.",
+    "evidence": [],
+    "traps": [
+      "health_insurance_policy.pdf s7 (wellness)",
+      "remote_work_policy.pdf s6.2 (home office allowance)"
+    ]
+  },
+  {
+    "id": "Q19",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "How many weeks of paid sabbatical do employees get after 5 years?",
+    "expected_answer": "Not covered by any policy in the corpus.",
+    "evidence": [],
+    "traps": [
+      "leave_policy_us_2026.pdf s2.1 (service-based PTO tiers)"
+    ]
+  },
+  {
+    "id": "Q20",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "Does the company offer pet insurance?",
+    "expected_answer": "Not covered by any policy in the corpus.",
+    "evidence": [],
+    "traps": [
+      "health_insurance_policy.pdf"
+    ]
+  },
+  {
+    "id": "Q21",
+    "category": "unanswerable",
+    "answerable": false,
+    "question": "What is the company's policy on employee stock options vesting?",
+    "expected_answer": "Not covered by any policy in the corpus.",
+    "evidence": [],
+    "traps": [
+      "employee_handbook.pdf s7-8 (compensation, 401k)"
+    ]
+  },
+  {
+    "id": "Q22",
+    "category": "direct",
+    "answerable": true,
+    "question": "What is the hotel limit in Bengaluru?",
+    "expected_answer": "INR 8,000 per night (Tier 1 city, TR-202 s4).",
+    "evidence": [
+      {
+        "file": "travel_policy.pdf",
+        "section": "4"
+      }
+    ],
+    "traps": []
+  },
+  {
+    "id": "Q23",
+    "category": "direct_version_in_same_doc",
+    "answerable": true,
+    "question": "What is the per diem for Tier 1 Indian cities?",
+    "expected_answer": "INR 3,500 per day (TR-202 v3.2). Revision history lists older values of INR 3,000 and 3,200.",
+    "evidence": [
+      {
+        "file": "travel_policy.pdf",
+        "section": "5"
+      }
+    ],
+    "traps": [
+      "travel_policy.pdf revision history"
+    ]
+  },
+  {
+    "id": "Q24",
+    "category": "direct",
+    "answerable": true,
+    "question": "How many days can I work from another country in a year?",
+    "expected_answer": "Up to 30 calendar days per calendar year with approval, requested 15 business days in advance (HR-RW-301 v2.1). Earlier v2.0 allowed 20.",
+    "evidence": [
+      {
+        "file": "remote_work_policy.pdf",
+        "section": "5"
+      }
+    ],
+    "traps": [
+      "remote_work_policy.pdf revision history (20 days)"
+    ]
+  },
+  {
+    "id": "Q25",
+    "category": "direct",
+    "answerable": true,
+    "question": "What is the health insurance sum insured for India employees?",
+    "expected_answer": "INR 5,00,000 per family per policy year (family floater), HR-BN-401 v6.0.",
+    "evidence": [
+      {
+        "file": "health_insurance_policy.pdf",
+        "section": "3.1"
+      }
+    ],
+    "traps": [
+      "revision history (INR 4,00,000 in v5.0)",
+      "voluntary top-up INR 10,00,000"
+    ]
+  },
+  {
+    "id": "Q26",
+    "category": "partial_evidence",
+    "answerable": true,
+    "question": "If a contractor converts to an employee, does their contractor time count toward parental leave eligibility in the US?",
+    "expected_answer": "No. Prior contractor service does not count toward service-based benefit eligibility (HR-CT-501 s9); US parental leave requires 6 months of continuous service as an employee (HR-LV-210 s5).",
+    "evidence": [
+      {
+        "file": "contractor_policy.pdf",
+        "section": "9"
+      },
+      {
+        "file": "leave_policy_us_2026.pdf",
+        "section": "5"
+      }
+    ],
+    "traps": []
+  }
+]

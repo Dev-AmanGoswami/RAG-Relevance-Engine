@@ -1,0 +1,16 @@
+First - we implemented loader.py to extract DocumentPages from PDF using pymupdf module
+Now, We'll build the Document Metadata Extractor
+
+Why do we need Metadata?
+Consider this question:
+How many days of annual leave can an employee in India carry forward under the current policy?
+A vector search could retrieve both documents because they discuss nearly identical topics. If we grade relevance based only on semantic meaning, both chunks might be considered relevant.
+
+This introduces two distinct concepts:
+- Semantic relevance: Does the document contain information related to the question?
+- Applicability: Is the document appropriate for the requested region, date, version and employee category?
+
+Metadata Extraction Pipeline: 
+PDF Loader -> Document Pages -> Metadata Extractor -> Validated DocumentMetadata
+For now - our extractor will use deterministic Python logic, not an LLM.
+

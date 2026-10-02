@@ -1,0 +1,86 @@
+{
+  "generated": "2026-09-27",
+  "company": "Aurelian Technologies",
+  "documents": [
+    {
+      "file": "leave_policy_india_2024.pdf",
+      "policy_id": "HR-LV-104",
+      "version": "3.0",
+      "title": "Leave Policy - India",
+      "entity": "Aurelian Technologies India Private Limited",
+      "effective_date": "1 April 2024",
+      "ground_truth_status": "superseded",
+      "superseded_by": "HR-LV-104 v4.0"
+    },
+    {
+      "file": "leave_policy_india_2026.pdf",
+      "policy_id": "HR-LV-104",
+      "version": "4.0",
+      "title": "Leave Policy - India",
+      "entity": "Aurelian Technologies India Private Limited",
+      "effective_date": "1 January 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    },
+    {
+      "file": "leave_policy_us_2026.pdf",
+      "policy_id": "HR-LV-210",
+      "version": "2.0",
+      "title": "Paid Time Off and Leave Policy - United States",
+      "entity": "Aurelian Technologies Inc.",
+      "effective_date": "1 January 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    },
+    {
+      "file": "remote_work_policy.pdf",
+      "policy_id": "HR-RW-301",
+      "version": "2.1",
+      "title": "Hybrid and Remote Work Policy",
+      "entity": "Aurelian Technologies India Private Limited and Aurelian Technologies Inc.",
+      "effective_date": "1 March 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    },
+    {
+      "file": "health_insurance_policy.pdf",
+      "policy_id": "HR-BN-401",
+      "version": "6.0",
+      "title": "Health Insurance and Wellbeing Benefits Policy",
+      "entity": "Aurelian Technologies India Private Limited and Aurelian Technologies Inc.",
+      "effective_date": "1 April 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    },
+    {
+      "file": "employee_handbook.pdf",
+      "policy_id": "HR-HB-001",
+      "version": "5.0",
+      "title": "Employee Handbook",
+      "entity": "Aurelian Technologies India Private Limited and Aurelian Technologies Inc.",
+      "effective_date": "1 July 2025",
+      "ground_truth_status": "current_but_partially_stale",
+      "superseded_by": null
+    },
+    {
+      "file": "contractor_policy.pdf",
+      "policy_id": "HR-CT-501",
+      "version": "1.4",
+      "title": "Contractor and Consultant Engagement Policy",
+      "entity": "Aurelian Technologies India Private Limited and Aurelian Technologies Inc.",
+      "effective_date": "1 February 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    },
+    {
+      "file": "travel_policy.pdf",
+      "policy_id": "TR-202",
+      "version": "3.2",
+      "title": "Global Travel and Expense Policy",
+      "entity": "Aurelian Technologies India Private Limited and Aurelian Technologies Inc.",
+      "effective_date": "1 April 2026",
+      "ground_truth_status": "current",
+      "superseded_by": null
+    }
+  ]
+}
