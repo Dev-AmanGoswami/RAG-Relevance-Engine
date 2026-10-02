@@ -27,3 +27,54 @@ Determine effective status across document versions
 Return validated metadata for downstream processin
 
 In DocumentMetadata class - supersedes_version is optional because not every policy replaces a previous version.
+
+Next Step - Metadata Resolution
+
+1. What problem are we solving?
+Consider the two India Leave Policies in your dataset.
+
+Attribute	2024 Policy	2026 Policy
+Policy ID	HR-LV-104	HR-LV-104
+Version	    3.0	        4.0
+Effective date	01-Apr-2024	01-Jan-2026
+Declared status	 Active	    Active (supersedes 3.0)
+Resolved current status	Superseded	 Active
+
+The interesting part is that the 2024 document originally declares itself Active.
+Our LLM metadata extractor processes documents independently. Therefore, it cannot reliably determine whether another document has superseded the one it is currently reading.
+This responsibility belongs to the Metadata Resolver.
+
+We will first create DocumentMetadata
+In the DocumentMetadata model class, Notice two separate fields:
+- declared_status: What the LLM extracted from the PDF.
+- status: What our application determines after examining the available policy versions.
+This distinction will help us debug metadata inconsistencies later.
+
+Next: We will implement a document identity generator
+Before implementing version resolution, we need a reliable way to identify documents.
+
+Why shouldn't we generate random UUIDs?
+Suppose we upload leave_policy_india_2026.pdf twice.
+If we use uuid.uuid4(), we get two unrelated identifiers for the same document. This makes it harder to build an idempotent ingestion pipeline.
+Instead, we'll create a deterministic identifier.
+We will create a metadata_resolver.py
+
+Expected behaviour
+For the same input, the function must always return the same ID.
+
+Now, We'll proceed to the next component of our RAG Relevance Engine.
+Cross-Document Version Resolution
+This is where we start introducing intelligence beyond basic metadata extraction.
+
+Consider two documents from your existing dataset:
+Attribute	India Leave 2024	India Leave 2026
+Policy ID	HR-LV-104	HR-LV-104
+Version	    3.0	        4.0
+Effective date	2024-04-01	2026-01-01
+Declared status	Active	Active
+Supersedes version	None	3.0
+
+Our metadata extractor processes these documents independently. Consequently, both initially receive an active status.
+But the 2026 document explicitly supersedes version 3.0.
+We need a mechanism to resolve their actual lifecycle status after all documents have been processed.
+

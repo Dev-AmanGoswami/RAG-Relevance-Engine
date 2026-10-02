@@ -9,4 +9,5 @@ dependencies = [
     "openai>=3.19.2",
     "pydantic>=2.13.5",
     "pymupdf>=1.28.2",
+    "pytest>=9.1.1",
 ]

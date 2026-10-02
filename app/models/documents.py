@@ -42,7 +42,7 @@ class DocumentMetadata(BaseModel):
         "superseded",
         "draft"
     ]
-
+    declared_status: str | None
     supersedes_version: str | None = None
 
     
