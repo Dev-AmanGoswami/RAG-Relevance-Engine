@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Literal
 from datetime import date
 
@@ -19,7 +19,8 @@ class DocumentChunk(BaseModel):
         "draft"
     ]
     content_hash: str
-
+    chunk_index: int = Field(ge=0)
+    
 class DocumentPage(BaseModel):
     source: str
     text: str
