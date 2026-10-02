@@ -24,3 +24,25 @@ class DocumentPage(BaseModel):
     source: str
     text: str
     page: int | None
+
+class DocumentMetadata(BaseModel):
+    document_id: str
+    source: str
+    policy_id: str
+    document_type: str
+    region: Literal[
+        "india",
+        "us",
+        "global"
+    ]
+    version: str
+    effective_date: date
+    status: Literal[
+        "active",
+        "superseded",
+        "draft"
+    ]
+
+    supersedes_version: str | None = None
+
+    

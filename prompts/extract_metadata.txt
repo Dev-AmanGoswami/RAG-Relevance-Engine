@@ -1,0 +1,9 @@
+Extract metadata from the first page of a company policy document. Use only what the text states; return null for anything missing.
+
+- policy_id: the policy identifier as written.
+- document_type: one of leave_policy, travel_policy, remote_work_policy, benefits_policy, contractor_policy, employee_handbook, other.
+- region: india or us if it applies to only that country; global if it applies to all employees or more than one country.
+- version: the version number only.
+- effective_date: the effective date in YYYY-MM-DD format, copying the year exactly (not the review date).
+- declared_status: the document status exactly as written.
+- supersedes_version: the earlier version number of this same policy that it replaces, only if explicitly stated.

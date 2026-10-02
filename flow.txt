@@ -11,6 +11,19 @@ This introduces two distinct concepts:
 - Applicability: Is the document appropriate for the requested region, date, version and employee category?
 
 Metadata Extraction Pipeline: 
-PDF Loader -> Document Pages -> Metadata Extractor -> Validated DocumentMetadata
-For now - our extractor will use deterministic Python logic, not an LLM.
+1. PDF Loader
+Extract document text page-wise
 
+2. Metadata Extractor (Lightweight LLM)
+Extract structured metadata from header text
+
+3. Pydantic Validation
+Validate fields, types and allowed values
+
+4. Metadata Resolver (Python)
+Determine effective status across document versions
+
+5. DocumentMetadata
+Return validated metadata for downstream processin
+
+In DocumentMetadata class - supersedes_version is optional because not every policy replaces a previous version.
