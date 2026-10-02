@@ -26,7 +26,7 @@ def normalize_status(
 ) -> Literal["active", "superseded", "draft"]:
 
     normalized = declared_status.strip().lower()
-    status = normalized.strip()[0]
+    status = normalized.split()[0]
 
     if status in ("active", "superseded", "draft"):
         return status
@@ -78,3 +78,64 @@ def resolve_metadata(
 
     return document
 
+def resolve_policy_versions(
+    documents: list[DocumentMetadata]
+) -> list[DocumentMetadata]:
+
+    copy_docs = [
+        document.model_copy(deep = True)
+        for document in documents
+    ]
+
+    document_lookup = {}
+    for doc in copy_docs:
+        if doc.document_id in document_lookup:
+            raise ValueError(
+                f"Duplicate document ID: {doc.document_id}"
+            )
+        
+        document_lookup[doc.document_id] = doc
+
+    superseded_ids: set[str] = set()
+
+    for doc in copy_docs:
+        if not doc.supersedes_version:
+            continue
+
+        if doc.status != "active":
+            continue
+
+        old_doc_id = generate_document_id(
+            policy_id=doc.policy_id,
+            version=doc.supersedes_version,
+            region=doc.region
+        )
+        
+        old_doc = document_lookup.get(old_doc_id)
+        
+        if not old_doc:
+            continue
+
+        validate_effective_date(
+            old_doc=old_doc,
+            new_doc=doc
+        )
+
+        superseded_ids.add(old_doc_id)
+
+    for old_doc_id in superseded_ids:
+        document_lookup[old_doc_id].status = "superseded"
+        
+    return copy_docs
+
+def validate_effective_date(
+    old_doc: DocumentMetadata,
+    new_doc: DocumentMetadata
+): 
+    if new_doc.effective_date <= old_doc.effective_date:
+        raise ValueError(
+            f"Invalid supersession relationship: "
+            f"{new_doc.policy_id} v{new_doc.version} cannot supersede "
+            f"v{old_doc.version} because its effective date "
+            f"is not later."
+        )
