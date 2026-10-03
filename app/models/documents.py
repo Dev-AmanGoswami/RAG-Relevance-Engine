@@ -1,10 +1,10 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 from datetime import date
-
 class DocumentChunk(BaseModel):
     id: str
     document_id: str
+    policy_id: str
     text: str
     source: str
     page: int | None
