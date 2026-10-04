@@ -2,6 +2,7 @@ from models.metadata import ExtractedMetadata
 from models.documents import DocumentMetadata
 from typing import Literal
 import hashlib
+from datetime import date
 
 def generate_document_id(
     policy_id: str,
@@ -96,7 +97,7 @@ def resolve_policy_versions(
         
         document_lookup[doc.document_id] = doc
 
-    superseded_ids: set[str] = set()
+    supersession_dates: dict[str, date] = {}
 
     for doc in copy_docs:
         if not doc.supersedes_version:
@@ -121,10 +122,18 @@ def resolve_policy_versions(
             new_doc=doc
         )
 
-        superseded_ids.add(old_doc_id)
+        if old_doc_id in supersession_dates:
+            raise ValueError(
+                f"Conflicting supersession relationship for document: {old_doc_id}"
+            )
 
-    for old_doc_id in superseded_ids:
-        document_lookup[old_doc_id].status = "superseded"
+        supersession_dates[old_doc_id] = doc.effective_date
+
+    for old_doc_id, superseded_on in supersession_dates.items():
+        old_doc = document_lookup[old_doc_id]
+
+        old_doc.status = "superseded"
+        old_doc.superseded_on = superseded_on
         
     return copy_docs
 

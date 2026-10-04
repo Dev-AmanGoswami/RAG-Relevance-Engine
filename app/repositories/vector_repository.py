@@ -118,7 +118,8 @@ def build_points(
                     else None
                 ),
                 "content_hash": chunk.content_hash,
-                "chunk_index": chunk.chunk_index
+                "chunk_index": chunk.chunk_index,
+                "superseded_on": chunk.superseded_on
             }
         )
 

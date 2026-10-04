@@ -54,7 +54,8 @@ def retrieve_documents(
                 status = payload["status"],
                 effective_date = payload["effective_date"],
                 content_hash = payload["content_hash"],
-                chunk_index = payload["chunk_index"]
+                chunk_index = payload["chunk_index"],
+                superseded_on = payload["superseded_on"]
             )
         except (KeyError, ValueError) as exc:
             raise RuntimeError(

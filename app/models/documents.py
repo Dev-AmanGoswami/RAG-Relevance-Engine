@@ -20,6 +20,7 @@ class DocumentChunk(BaseModel):
     ]
     content_hash: str
     chunk_index: int = Field(ge=0)
+    superseded_on: date | None = None
     
 class DocumentPage(BaseModel):
     source: str
@@ -45,5 +46,6 @@ class DocumentMetadata(BaseModel):
     ]
     declared_status: str | None
     supersedes_version: str | None = None
+    superseded_on: date | None = None
 
     
